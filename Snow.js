@@ -12,7 +12,7 @@ import {
 const ANGE_RANGE = 0.1;
 const HALF_ANGLE_RANGE = ANGE_RANGE / 2;
 const HALF_PI = Math.PI / 2;
-const ANGLE_SEED = 25;
+const ANGLE_SEED = 100;
 const ANGLE_DIVISOR = 10000;
 const INCREMENT_LOWER = 2;
 const INCREMENT_UPPER = 4;
@@ -32,7 +32,7 @@ export default class Snow extends Component {
     this.angle = Random.getRandomFloat(ANGLE_SEED) / ANGLE_SEED * ANGE_RANGE + HALF_PI - HALF_ANGLE_RANGE;
     this.increment = Random.getRandom(INCREMENT_LOWER, INCREMENT_UPPER);
     this.flakeSize = Random.getRandom(FLAKE_SIZE_LOWER, FLAKE_SIZE_UPPER);
-    this.opacity = Math.random();
+    this.opacity = Math.random() + 0.1;
 
   }
 
@@ -40,7 +40,7 @@ export default class Snow extends Component {
     this.updateInterval = setInterval(() => {
       this.move(this.props.width, this.props.height);
       this.forceUpdate();
-    },100);
+    },50);
   }
 
   componentWillUnmount(){
@@ -48,21 +48,20 @@ export default class Snow extends Component {
   }
 
   move(width, height) {
-    if ((width == 0) && (height == 0)) {
-      return;
-    }
 
     const x = this.x + (this.increment * Math.cos(this.angle));
     const y = this.y + (this.increment * Math.sin(this.angle));
 
     this.angle += Random.getRandom(-ANGLE_SEED, ANGLE_SEED) / ANGLE_DIVISOR;
 
-    this.x = x;
-    this.y = y;
+    this.x = Math.floor(x);
+    this.y = Math.floor(y);
 
     if (!this.isInside(width, height)) {
       this.reset(width);
     }
+
+
 
   }
 
@@ -95,17 +94,14 @@ export default class Snow extends Component {
   }
 
 
-
   render() {
-
     const snowShape = this.getPosition();
 
     return (
       <View {...this.props} style={[styles.snow, snowShape]}/>
     )
   }
-}
-;
+};
 
 Snow.PropTypes = {
   width: React.PropTypes.number,

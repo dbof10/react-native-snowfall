@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class SnowView extends View {
-    private static final int NUM_SNOWFLAKES = 20;
+    private static final int NUM_SNOWFLAKES = 1;
     private static final int DELAY = 50;
 
     private SnowFlake[] snowflakes;

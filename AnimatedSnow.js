@@ -49,11 +49,7 @@ export default class AnimatedSnow extends PureComponent {
           });
         }}>
 
-        <View style={{flex: 1}}>
-
-          {snow}
-
-        </View>
+        {snow}
 
       </View>
     )
