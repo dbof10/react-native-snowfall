@@ -1,8 +1,7 @@
 /**
  * Created by admin on 12/28/16.
+ * updated by UniNow on 12/03/2017
  */
-
-import randomInt from 'random-int';
 
 export function getRandom(lower, upper) {
   const min = Math.min(lower, upper);
@@ -15,5 +14,5 @@ export function getRandomFloat(upper) {
 }
 
 export function getRandomInt(upper) {
-  return randomInt(upper);
+  return Math.floor(Math.random() * (upper - 1 + 1)) + 1;
 }

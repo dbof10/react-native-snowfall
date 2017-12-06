@@ -10,8 +10,6 @@ import {
   AppRegistry,
   StyleSheet,
   View,
-  Animated,
-  TouchableWithoutFeedback,
   Dimensions,
   Image
 } from 'react-native';
@@ -31,7 +29,6 @@ class SnowFall extends Component {
 
     return (
       <View style={styles.container}>
-
         <Image source={{uri: 'avt'}} style={styles.snowContainer}/>
         <AnimatedSnow style={styles.snowContainer}/>
       </View>

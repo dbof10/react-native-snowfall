@@ -7,13 +7,13 @@
     "test": "jest"
   },
   "dependencies": {
-    "random-int": "^1.0.0",
-    "react": "15.4.1",
-    "react-native": "0.39.2"
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-native": "^0.50.4"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",
-    "babel-preset-react-native": "1.9.1",
+    "babel-preset-react-native": "^4.0.0",
     "jest": "18.0.0",
     "react-test-renderer": "15.4.1"
   },
